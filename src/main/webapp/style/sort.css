@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.SortTD {
+  width: 80%;
+  margin-top: 3px;
+  height: 22px;
+  border: 1px solid black;
+}

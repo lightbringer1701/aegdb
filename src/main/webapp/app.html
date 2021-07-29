@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Aegilops Base</title>
+	<script src="script/jquery-3.6.0.min.js"></script>
+	<script src="script/designDocument.js"></script>
+	<script src="script/ajaxSearch.js"></script>
+	<script src="script/ajaxLogin.js"></script>	
+	<script src="script/ajaxCreate.js"></script>	
+	<script src="script/ajaxDelete.js"></script>
+	<script src="script/ajaxEdit.js"></script>
+	<script src="script/ajaxSave.js"></script>
+	<link rel="stylesheet" href="style/document.css">
+	<link rel="stylesheet" href="style/user.css">
+	<link rel="stylesheet" href="style/create.css">
+	<link rel="stylesheet" href="style/edit.css">
+	<link rel="stylesheet" href="style/sort.css">
+	<link rel="stylesheet" href="style/search.css">
+	<link rel="stylesheet" href="style/result.css">
+</head>
+<body>
+
+	<div id="editPopUp">
+		<span id="editPopUp__close" class="close">ₓ</span>
+		<div id="editTr2"></div>
+		<div id="editPopUpResponse">
+  			<div id="editTr2">
+  				<div id="editTdInf">ACCENUMB</div>
+  				<div><input class="edit-row" id="EditInputACCENUMB" placeholder="Введите число" /></div>
+  			</div>
+        	<div id="editTr2">
+        		<div id="editTdInf">COUNTRY</div>
+        		<div><input class="edit-row" id="EditInputCOUNTRY" /></div>
+        	</div>
+        	<div id="editTr2">
+        		<div id="editTdInf">ACCENAME</div>
+        		<div><input class="edit-row" id="EditInputACCENAME" /></div>
+        	</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">YEAR</div>
+       			<div><input class="edit-row" id="EditInputYEAR" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">HEIGHT</div>
+       			<div><input class="edit-row" id="EditInputHEIGHT" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">DATE</div>
+       			<div><input class="edit-row" id="EditInputDATE" placeholder="Введите дату в формате **.** (например, 09.06)"/></div>
+       		</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">STAB1</div>
+       			<div><input class="edit-row" id="EditInputSTAB1" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">STAB2</div>
+       			<div><input class="edit-row" id="EditInputSTAB2" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="editTr2">
+       			<div id="editTdInf">STAB3</div>
+       			<div><input class="edit-row" id="EditInputSTAB3" placeholder="Введите число"/></div>
+       		</div>
+  		<br>
+  		<input id="EditButton" type="button" value="Save" />
+  		</div>
+	</div>
+	<div id="editOverlay"></div>
+
+	<div id="createPopUp">
+  		<span id="createPopUp__close" class="close">ₓ</span>
+  			<div id="createTr2"></div>
+  			<div id="createTr2">
+  				<div id="createTdInf">ACCENUMB</div>
+  				<div><input class="create-row" id="CreateInputACCENUMB" placeholder="Введите число" /></div>
+  			</div>
+        	<div id="createTr2">
+        		<div id="createTdInf">COUNTRY</div>
+        		<div><input class="create-row" id="CreateInputCOUNTRY" /></div>
+        	</div>
+        	<div id="createTr2">
+        		<div id="createTdInf">ACCENAME</div>
+        		<div><input class="create-row" id="CreateInputACCENAME" /></div>
+        	</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">YEAR</div>
+       			<div><input class="create-row" id="CreateInputYEAR" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">HEIGHT</div>
+       			<div><input class="create-row" id="CreateInputHEIGHT" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">DATE (M)</div>
+       			<div><input class="create-row" id="CreateInputDATEM" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">DATE (D)</div>
+       			<div><input class="create-row" id="CreateInputDATED" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">STAB1</div>
+       			<div><input class="create-row" id="CreateInputSTAB1" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">STAB2</div>
+       			<div><input class="create-row" id="CreateInputSTAB2" placeholder="Введите число"/></div>
+       		</div>
+       		<div id="createTr2">
+       			<div id="createTdInf">STAB3</div>
+       			<div><input class="create-row" id="CreateInputSTAB3" placeholder="Введите число"/></div>
+       		</div>
+  		<br>
+  		<input id="CreateButton" type="button" value="Add" onclick="ajaxCreate()" />
+	</div>
+	<div id="createOverlay"></div>
+
+	<div id="UserHeader" class="Header">Пользователь</div>
+	<div id="UserContent">
+		<div class="TRContent">
+			<div class="TDContent">Username:</div>
+			<div class="TDContent"><input class="UserInput" id="LoginName" placeholder="username..." /></div>
+		</div>
+		<div class="TRContent">
+			<div class="TDContent">Password:</div>
+			<div class="TDContent"><input class="UserInput" id="LoginPassword" placeholder="password..." /></div>
+		</div>
+		<div class="TRContent">
+			<div class="TDContent">Login:</div>
+			<div class="TDContent"><input id="LoginRequest" type="button" value="Login" onclick="ajaxLogin()" /></div>
+		</div>
+		<div class="TRContent">
+			<div class="TDContent">Info:</div>
+			<div class="TDContent">
+				<div id="LoginResult"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="CreateHeader" class="Header">Добавление</div>
+	<div id="CreateContent">
+		<div class="TRContent">
+			<div><input id="CreateButtonOverlay" type="button" value="Create" disabled/></div>
+		</div>	
+	</div>
+	
+	<div id="SortHeader" class="Header">Сортировка</div>
+	<div id="SortContent">
+		<div class="TRContent">
+			<div class="TDContent">
+				Столбец
+			</div>
+				<select class="SortTD" id="SearchType">
+        			<option>ACCENUMB</option>
+        			<option>COUNTRY</option>
+        			<option>ACCENAME</option>
+       				<option>YEAR</option>
+       				<option>HEIGHT</option>
+       				<option>DATE</option>
+       				<option>STAB1</option>
+       				<option>STAB2</option>
+       				<option>STAB3</option>
+    			</select>
+		</div>
+		<div class="TRContent">
+			<div class="TDContent">
+				Порядок
+			</div>
+				<select  class="SortTD" id="SearchMove">
+        			<option>Ascending</option>
+        			<option>Descending</option>
+    			</select>
+		</div>
+	</div>
+	
+	<div id="SearchHeader" class="Header">Поиск</div>
+	<div id="SearchContent">
+		<div class="TRContent">
+   			<div class="TDContent">ACCENUMB</div>
+   			<div><input class="SearchTD" id="SearchInputACCENUMB" placeholder="Введите ACCENUMB" /></div>
+   		</div>
+    	<div class="TRContent">
+    		<div class="TDContent">COUNTRY</div>
+    		<div><input class="SearchTD" id="SearchInputCOUNTRY" placeholder="Введите COUNTRY" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">ACCENAME</div>
+    		<div><input class="SearchTD" id="SearchInputACCENAME" placeholder="Введите ACCENAME" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">YEAR</div>
+    		<div><input class="SearchTD" id="SearchInputYEAR" placeholder="Введите YEAR" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">HEIGHT</div>
+    		<div><input class="SearchTD" id="SearchInputHEIGHT" placeholder="Введите HEIGHT" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">DATE</div>
+    		<div><input class="SearchTD" id="SearchInputDATE" placeholder="Введите DATE" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">STAB1</div>
+    		<div><input class="SearchTD" id="SearchInputSTAB1" placeholder="Введите STAB1" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">STAB2</div>
+    		<div><input class="SearchTD" id="SearchInputSTAB2" placeholder="Введите STAB2" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent">STAB3</div>
+    		<div><input class="SearchTD" id="SearchInputSTAB3" placeholder="Введите STAB3" /></div>
+    	</div>
+    	<div class="TRContent">
+    		<div class="TDContent"><input id="SearchButton" type="button" value="Применить" onclick="ajaxSearch()" /></div>
+    	</div>
+	</div>
+
+	<div id="ResultHeader" class="Header">Результаты</div>
+	<div id="ResultContent"></div>
+</body>
+</html>

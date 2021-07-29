@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.UserInput {
+  width: 240px;
+  border: 1px solid black;
+}
+
+#LoginRequest {
+  width: 240px;
+  border: 1px solid black;
+}

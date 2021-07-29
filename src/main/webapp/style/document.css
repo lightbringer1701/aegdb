@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.Header {
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  background-color: #abf18d;
+  border: 1px solid green;
+}
+
+.TRContent {
+  background-color: rgb(221, 221, 221);
+  height: 30px;
+  border: 1px solid black;
+}
+
+.TDContent {	
+  padding: 3px;
+  margin-right: 10px;
+  width: 15%;
+  height: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  float: left;
+  margin-top: 3px;
+  margin-left: 5px;
+}
